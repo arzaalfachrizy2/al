@@ -17,7 +17,7 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Compile C++ to EXE
-        run: cl /EHsc main.cpp /Fe:main.exe
+        run: cl /EHsc project1.cpp /Fe:main.exe
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
