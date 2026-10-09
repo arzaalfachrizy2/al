@@ -1,0 +1,26 @@
+
+name: Build C++ EXE
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Download Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup C++ Compiler
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Compile C++ to EXE
+        run: cl /EHsc project1.cpp /Fe:project1.exe
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: hasil-exe
+          path: project1.exe
